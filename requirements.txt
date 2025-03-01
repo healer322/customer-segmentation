@@ -1,0 +1,19 @@
+# Core dependencies
+numpy
+pandas
+scipy
+scikit-learn
+
+# Model and utility libraries
+pickle-mixin  # Handles loading models in Python
+joblib
+threadpoolctl
+
+# Streamlit for web interface
+streamlit
+
+# Date and time utilities
+python-dateutil
+pytz
+tzdata
+
