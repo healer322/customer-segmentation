@@ -99,7 +99,7 @@ if predict_button:
             st.markdown('</div>', unsafe_allow_html=True)
 
 
-            # Sample customer inputs and predictions
+# Sample customer inputs and predictions
 st.markdown('<div class="section-header">Sample Customer Profiles</div>', unsafe_allow_html=True)
 
 example_data = {
@@ -115,6 +115,7 @@ example_df = pd.DataFrame(example_data)
 example_input = example_df[["Annual Income (k$)", "Spending Score"]].values
 predicted_clusters = model.predict(example_input)
 example_df["Predicted Segment"] = predicted_clusters
+
 
 
 #st.write("\nExample customer inputs:")
