@@ -116,6 +116,15 @@ example_df["Predicted Segment"] = predicted_clusters
 
 # Display as a styled table
 st.dataframe(example_df.style.highlight_max(axis=0, color='lightgreen'), use_container_width=True)
+# Sample product suggestions based on segment
+segment_products = {
+    0: "💼 Premium Credit Card or Travel Packages",
+    1: "🛍️ Budget Deals or Discounted Groceries",
+    2: "🧴 Mid-range Skincare or Fitness Gear",
+    3: "📱 Latest Gadgets or Tech Subscriptions",
+    4: "🎨 Art Supplies or Lifestyle Subscriptions"
+}
+
 
 #st.write("\nExample customer inputs:")
 #st.write("High spender: Age 35, Income 75k$, Spending Score 85")
