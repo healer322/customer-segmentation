@@ -97,6 +97,16 @@ if predict_button:
             st.write(f"Annual Income: {annual_income}k$")
             st.write(f"Spending Score: {spending_score}")
             st.markdown('</div>', unsafe_allow_html=True)
+
+# Display as a styled table
+st.dataframe(example_df.style.highlight_max(axis=0, color='lightgreen'), use_container_width=True)
+# Sample product suggestions based on segment
+segment_products = {
+    0: "💼 Premium Credit Card or Travel Packages",
+    1: "🛍️ Budget Deals or Discounted Groceries",
+    2: "🧴 Mid-range Skincare or Fitness Gear",
+    3: "📱 Latest Gadgets or Tech Subscriptions",
+    4: "🎨 Art Supplies or Lifestyle Subscriptions"
             # Sample customer inputs and predictions
 st.markdown('<div class="section-header">Sample Customer Profiles</div>', unsafe_allow_html=True)
 
@@ -113,17 +123,6 @@ example_df = pd.DataFrame(example_data)
 example_input = example_df[["Annual Income (k$)", "Spending Score"]].values
 predicted_clusters = model.predict(example_input)
 example_df["Predicted Segment"] = predicted_clusters
-
-# Display as a styled table
-st.dataframe(example_df.style.highlight_max(axis=0, color='lightgreen'), use_container_width=True)
-# Sample product suggestions based on segment
-segment_products = {
-    0: "💼 Premium Credit Card or Travel Packages",
-    1: "🛍️ Budget Deals or Discounted Groceries",
-    2: "🧴 Mid-range Skincare or Fitness Gear",
-    3: "📱 Latest Gadgets or Tech Subscriptions",
-    4: "🎨 Art Supplies or Lifestyle Subscriptions"
-}
 
 
 #st.write("\nExample customer inputs:")
