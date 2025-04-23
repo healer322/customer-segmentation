@@ -97,6 +97,25 @@ if predict_button:
             st.write(f"Annual Income: {annual_income}k$")
             st.write(f"Spending Score: {spending_score}")
             st.markdown('</div>', unsafe_allow_html=True)
+            # Sample customer inputs and predictions
+st.markdown('<div class="section-header">Sample Customer Profiles</div>', unsafe_allow_html=True)
+
+example_data = {
+    "Profile": ["High Spender", "Low Spender", "Average Spender"],
+    "Age": [35, 50, 28],
+    "Annual Income (k$)": [75, 30, 55],
+    "Spending Score": [85, 20, 50]
+}
+
+example_df = pd.DataFrame(example_data)
+
+# Predict segments for sample customers
+example_input = example_df[["Annual Income (k$)", "Spending Score"]].values
+predicted_clusters = model.predict(example_input)
+example_df["Predicted Segment"] = predicted_clusters
+
+# Display as a styled table
+st.dataframe(example_df.style.highlight_max(axis=0, color='lightgreen'), use_container_width=True)
 
 #st.write("\nExample customer inputs:")
 #st.write("High spender: Age 35, Income 75k$, Spending Score 85")
